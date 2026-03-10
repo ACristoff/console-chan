@@ -3,4 +3,5 @@ export interface LogOptions {
   fontSize?: string
   taglineFontSize?: string;
   frequency?: "once" | "navigate"
+  append?: string
 }

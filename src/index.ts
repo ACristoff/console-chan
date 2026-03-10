@@ -10,21 +10,22 @@ export function getRandomTagline() {
   return TAGLINES[Math.floor(Math.random() * TAGLINES.length)]
 }
 
-const DEFAULTS: Required<LogOptions> = {
+const DEFAULTS = {
   color: "#8b5cf6",
   fontSize: "18px",
   taglineFontSize: "14px",
-  frequency: "once",
+  frequency: "once" as const,
 }
 
 let hasLogged = false;
 
 export function logConsoleArt(options?: LogOptions) {
   const {
-    color, 
+    color,
     fontSize,
     taglineFontSize,
-    frequency
+    frequency,
+    append
   } = { ...DEFAULTS , ...options}
 
   if (frequency === "once" && hasLogged) return;
@@ -35,14 +36,21 @@ export function logConsoleArt(options?: LogOptions) {
 
   const isBrowser = typeof window !== "undefined";
 
+  const appendLine = append ? `\n%c${append}` : "";
+  const appendStyle = append
+    ? `color: ${color}; font-size: ${taglineFontSize}; font-family: monospace;`
+    : "";
+
   if (isBrowser) {
-    console.log(
-      `%c${art}\n%c${tagline}`,
+    const args = [
+      `%c${art}\n%c${tagline}${appendLine}`,
       `color: ${color}; font-size: ${fontSize}; font-family: monospace; line-height: 1.2;`,
-      `color: ${color}; font-size: ${taglineFontSize}; font-family: monospace; font-style: italic`
-    )
+      `color: ${color}; font-size: ${taglineFontSize}; font-family: monospace; font-style: italic`,
+      ...(append ? [appendStyle] : []),
+    ];
+    console.log(...args);
   } else {
-    console.log(`${art}\n${tagline}`)
+    console.log(`${art}\n${tagline}${append ? `\n${append}` : ""}`)
   }
 
 }
