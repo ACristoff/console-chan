@@ -8,10 +8,7 @@ export default `
 your art here
 `
 ```
-3. Add the import to 
-```
-src/art/index.ts
-```
+3. Add the import to `src/art/index.ts`
 ```ts
 import catGirl from "./cat-girl"
 ```
