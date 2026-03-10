@@ -1,6 +1,6 @@
 {
   "name": "console-chan",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Log random anime ASCII art to the browser console",
   "keywords": [
     "console",
@@ -11,6 +11,10 @@
   ],
   "license": "MIT",
   "author": "Alex Cristoffanini",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ACristoff/console-chan"
+  },
   "type": "module",
   "main": "dist/index.js",
   "exports": {
