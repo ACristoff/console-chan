@@ -7,9 +7,6 @@ export function useConsoleArt(options?: LogOptions) {
   }, [])
 }
 
-
-
-
 export function ConsoleArt (props?: LogOptions) {
   useConsoleArt(props);
   return null
