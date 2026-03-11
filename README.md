@@ -15,7 +15,7 @@ A zero-dependency package with optional React bindings that logs anime-themed AS
 ```ts
 import { logConsoleArt } from "console-chan";
 
-logConsoleArt();
+logConsoleArt({ append: "https://mysite.com" });
 ```
 > In Node.js, output is plain text without color styling.
 
@@ -25,7 +25,8 @@ LogOptions {
   color: hex string (Default: "#8b5cf6"),
   fontSize: string (Default: 18px),
   taglineFontSize: string (Default: 14px),
-  frequency: "once" | "navigate" (Default: "once")
+  frequency: "once" | "navigate" (Default: "once"),
+  append: string (optional)
 }
 ```
 
